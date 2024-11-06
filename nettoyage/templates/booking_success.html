@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container text-center my-5">
+    <!-- Logo et Titre -->
+    <div class="d-flex flex-column align-items-center">
+        <h1 class="display-4 text-primary">Confirmation réussie !</h1>
+    </div>
+
+    <!-- Icône de succès et message de confirmation -->
+    <div class="mt-4 mb-3">
+        <i class="fas fa-check-circle text-success" style="font-size: 80px;"></i>
+    </div>
+    <p class="lead text-muted mb-4">
+        Merci pour votre réservation ! Vous recevrez une confirmation par e-mail sous peu. Nous avons hâte de vous offrir nos services de qualité.
+    </p>
+
+    <!-- Bouton de retour à l'accueil -->
+    <a href="{% url 'home' %}" class="btn btn-outline-primary btn-lg">
+        <i class="fas fa-home"></i> Retour à l'accueil
+    </a>
+</div>
+
+<!-- Lien vers Font Awesome pour les icônes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{% endblock %}

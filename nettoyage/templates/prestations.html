@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center text-primary mb-4">Nos Prestations de Service</h1>
+    <p class="text-center text-secondary mb-5">
+        Découvrez notre gamme complète de services de nettoyage, désencombrement et bien plus encore. 
+        Nous sommes dédiés à rendre vos espaces propres, organisés et agréables à vivre.
+    </p>
+
+    <div class="row">
+        {% for service in services %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+                <!-- Image du service en cercle -->
+                <img src="{{ service.image.url }}" class="card-img-top rounded-circle mx-auto mt-3" style="width: 150px; height: 150px; object-fit: cover;" alt="{{ service.name }}">
+                
+                <!-- Contenu de la carte -->
+                <div class="card-body text-center">
+                    <h5 class="card-title text-dark">{{ service.name }}</h5>
+                    <p class="card-text text-muted">{{ service.description|truncatewords:20 }}</p>
+                </div>
+
+                <!-- Bouton de réservation -->
+                
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

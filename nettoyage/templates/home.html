@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center text-primary mb-4">Nos services de nettoyage</h1>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for service in services %}
+        <div class="col">
+            <div class="card shadow-sm border-0 h-100 p-4">
+                <div class="row g-0 align-items-center">
+                    <!-- Image agrandie et centrée -->
+                    <div class="col-md-4 d-flex justify-content-center">
+                        <img src="{{ service.image.url }}" class="rounded-circle img-fluid shadow-sm" alt="{{ service.name }}" style="width: 200px; height: 200px; object-fit: cover;">
+                    </div>
+                    <!-- Description et informations -->
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">{{ service.name }}</h5>
+                            <p class="card-text">{{ service.description|truncatewords:30 }}</p>
+                            <p class="text-muted">Pour tous devis ou questions, contactez-nous !</p>
+                            <a href="{% url 'booking' service.id %}" class="btn btn-success">Demande Devis</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donner un avis</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Card for service details -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h2 class="card-title text-primary">Donner un avis sur le service</h2>
+                <h5 class="card-subtitle mb-3 text-muted">{{ booking.service.name }}</h5>
+                <ul class="list-unstyled">
+                    <li><strong>Date du service :</strong> {{ booking.date }}</li>
+                    <li><strong>Adresse :</strong> {{ booking.address }}</li>
+                    <li><strong>Prénom :</strong> {{ booking.prenom }}</li>
+                    <li><strong>Nom :</strong> {{ booking.nom }}</li>
+                    <li><strong>Email :</strong> {{ booking.email }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Form Card -->
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title text-primary">Formulaire d'évaluation</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <!-- Note Selection -->
+                    <div class="form-group">
+                        <label for="rating" class="font-weight-bold">Note :</label>
+                        <select id="rating" name="rating" class="form-control">
+                            <option value="1">1 - Très insatisfait</option>
+                            <option value="2">2 - Insatisfait</option>
+                            <option value="3">3 - Moyennement satisfait</option>
+                            <option value="4">4 - Satisfait</option>
+                            <option value="5">5 - Très satisfait</option>
+                        </select>
+                    </div>
+
+                    <!-- Commentaire -->
+                    <div class="form-group">
+                        <label for="comment" class="font-weight-bold">Commentaire :</label>
+                        <textarea id="comment" name="comment" class="form-control" rows="4" placeholder="Écrivez votre commentaire ici..."></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary btn-block">Envoyer l'avis</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional, for interactive components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Section principale avec une card et un en-tête -->
+    <div class="card shadow-lg border-0">
+        <div class="card-body text-center">
+            <h2 class="card-title text-primary mb-4">Service de Désencombrement</h2>
+            <p class="card-text text-secondary fs-5">
+                Pour tous vos besoins en désencombrement, que ce soit pour des espaces de travail, des habitations ou autres locaux, notre équipe est à votre disposition !
+            </p>
+
+            <!-- Section avec informations de contact -->
+            <div class="my-4">
+                <h5 class="text-dark">Contactez-nous</h5>
+                <p class="text-muted">Pour un service de désencombrement, veuillez nous contacter au numéro suivant :</p>
+                <p class="fs-4 text-primary"><strong><i class="fas fa-phone-alt"></i> +33 699 71 21 71</strong></p>
+            </div>
+
+            <!-- Bouton d'action -->
+            <a href="tel:+33699712171" class="btn btn-primary btn-lg">
+                <i class="fas fa-phone-alt me-2"></i>Appeler maintenant
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
